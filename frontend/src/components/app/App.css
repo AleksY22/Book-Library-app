@@ -6,21 +6,21 @@
    text-align: center;
 }
 
-.app-header {
+.app__header {
    background-color: #0a1a2d;
    color: #fff;
    width: 100%;
    margin-bottom: 20px;
 }
 
-.app-main {
+.app__main {
    display: flex;
    justify-content: space-between;
    width: 80%;
    margin: 0 auto;
 }
 
-.app-left-column {
+.app__left-column {
    flex: 1;
    flex-basis: 35%;
    display: flex;
@@ -28,14 +28,14 @@
    align-self: flex-start;
 }
 
-.app-right-column {
+.app__right-column {
    flex: 1;
    flex-basis: 65%;
    display: flex;
    flex-direction: column;
 }
 
-.app-block {
+.app__block {
    padding: 20px;
    margin: 20px;
    background-color: #f2f2f2;
@@ -44,13 +44,13 @@
 }
 
 @media (max-width: 1024px) {
-   .app-main {
+   .app__main {
       width: 100%;
       flex-direction: column;
    }
 
-   .app-left-column,
-   .app-right-column {
+   .app__left-column,
+   .app__right-column {
       flex-basis: 100%;
       align-self: unset;
    }
