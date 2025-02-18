@@ -23,7 +23,7 @@ function BookFilter() {
     dispatch(setAuthorFilter(e.target.value));
   };
   const handleOnlyFavoriteFilterChange = () => {
-    //dispatch(selectOnlyFavoriteFilter(e.target.checked));
+    //dispatch(setOnlyFavoriteFilter(e.target.checked));
     dispatch(setOnlyFavoriteFilter());
   };
   const handleResetFilters = () => {
