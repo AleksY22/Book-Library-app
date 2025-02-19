@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  books: [],
+  booksList: [],
 };
 
 const booksSlice = createSlice({
@@ -9,13 +9,15 @@ const booksSlice = createSlice({
   initialState: initialState,
   reducers: {
     setAddBook: (state, action) => {
-      state.books = [...state.books, action.payload];
+      state.booksList = [...state.booksList, action.payload];
     },
     setDeleteBook: (state, action) => {
-      state.books = state.books.filter((book) => book.id !== action.payload);
+      state.booksList = state.booksList.filter(
+        (book) => book.id !== action.payload
+      );
     },
     setToggleFavorite: (state, action) => {
-      state.books = state.books.map((book) =>
+      state.booksList = state.booksList.map((book) =>
         book.id === action.payload
           ? { ...book, isFavorite: !book.isFavorite }
           : book
@@ -27,6 +29,6 @@ const booksSlice = createSlice({
 export const { setAddBook, setDeleteBook, setToggleFavorite } =
   booksSlice.actions;
 
-export const selectBooks = (state) => state.books.books;
+export const selectBooks = (state) => state.books.booksList;
 
 export default booksSlice.reducer;
