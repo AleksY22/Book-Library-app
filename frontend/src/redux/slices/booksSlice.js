@@ -50,6 +50,17 @@ const booksSlice = createSlice({
       }
     });
   },
+  // =========второй способ==============
+  //   extraReducers: {
+  //    [fetchBook.fulfilled]: (state, action) => {
+  //       if (action.payload.title && action.payload.author) {
+  //         state.booksList = [
+  //           ...state.booksList,
+  //           createBook(action.payload, "API"),
+  //         ];
+  //       }
+  //     }
+  //   }
 });
 
 export const { setAddBook, setDeleteBook, setToggleFavorite } =
