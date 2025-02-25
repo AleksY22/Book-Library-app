@@ -40,6 +40,10 @@
    height: 12px;
 }
 
+.disabled {
+   background-color: #0056b3 !important;
+}
+
 @keyframes spinner {
    from {
       transform: rotate(0deg);

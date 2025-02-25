@@ -46,6 +46,8 @@ function BookForm() {
     }
   };
 
+  const addDisabledClass = isLoading ? "disabled" : null;
+
   return (
     <div className="app__block book__form">
       <h2>Add a new book</h2>
@@ -77,6 +79,7 @@ function BookForm() {
           type="button"
           onClick={handleAddRandomBookApi}
           disabled={isLoading}
+          className={addDisabledClass}
         >
           {isLoading ? (
             <>
