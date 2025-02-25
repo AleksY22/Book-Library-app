@@ -19,9 +19,10 @@
 }
 
 .book__form button {
+   width: 135px;
    background-color: #007bff;
    color: #fff;
-   padding: 8px 12px;
+   padding: 10px 12px;
    border: none;
    border-radius: 3px;
    cursor: pointer;
@@ -35,7 +36,8 @@
 
 .book__form .spinner {
    animation: spinner 1s infinite linear;
-   margin-left: 10px;
+   margin-left: 8px;
+   height: 12px;
 }
 
 @keyframes spinner {
