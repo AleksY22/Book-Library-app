@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FaSpinner } from "react-icons/fa";
 //import { addBook } from "../../redux/books/actionCreators";
-import { setAddBook, fetchBook } from "../../redux/slices/booksSlice";
+import {
+  setAddBook,
+  fetchBook,
+  selectIsLoadingAPI,
+} from "../../redux/slices/booksSlice";
 import { setError } from "../../redux/slices/errorSlice";
 import createBook from "../../utils/createBook";
 import booksData from "../../data/books.json";
@@ -15,8 +19,8 @@ function BookForm() {
   //   });
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+  const isLoadingAPI = useSelector(selectIsLoadingAPI);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,16 +41,20 @@ function BookForm() {
     dispatch(setAddBook(randomBookWithId));
   };
 
-  const handleAddRandomBookApi = async () => {
-    try {
-      setIsLoading(true);
-      await dispatch(fetchBook("http://localhost:4000/random-book-delayed"));
-    } finally {
-      setIsLoading(false);
-    }
+  //   const handleAddRandomBookApi = async () => {
+  //     try {
+  //       dispatch(setIsLoading(true));
+  //       await dispatch(fetchBook("http://localhost:4000/random-book-delayed"));
+  //     } finally {
+  //       dispatch(setIsLoading(false));
+  //     }
+  //   };
+
+  const handleAddRandomBookApi = () => {
+    dispatch(fetchBook("http://localhost:4000/random-book-delayed"));
   };
 
-  const addDisabledClass = isLoading ? "disabled" : null;
+  const addDisabledClass = isLoadingAPI ? "disabled" : null;
 
   return (
     <div className="app__block book__form">
@@ -78,10 +86,10 @@ function BookForm() {
         <button
           type="button"
           onClick={handleAddRandomBookApi}
-          disabled={isLoading}
+          disabled={isLoadingAPI}
           className={addDisabledClass}
         >
-          {isLoading ? (
+          {isLoadingAPI ? (
             <>
               <span>Loading...</span>
               <FaSpinner className="spinner" />
